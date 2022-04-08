@@ -1,0 +1,52 @@
+
+<div class="buttonContainer" fxLayoutAlign="space-between center">
+
+    <button mat-raised-button 
+    color="primary" 
+    [style.cursor]="'pointer'" 
+    (click)="onClick()">
+    Show User List
+    </button>
+    
+    <button mat-raised-button class="demo-button"  (click)="openDialog()">
+        Add User
+    </button>
+</div>
+
+
+
+
+
+<div class="container" fxLayoutAlign="center center"  >
+
+
+    <table *ngIf="showList" mat-table [dataSource]="users" class="mat-elevation-z8" >
+        
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> User Id</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+        <!-- Job Role Column -->
+        <ng-container matColumnDef="jobTitle">
+          <th mat-header-cell *matHeaderCellDef> Job Role </th>
+          <td mat-cell *matCellDef="let element"> {{element.jobTitle}} </td>
+        </ng-container>
+      
+        <tr  class="pre" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      
+
+</div>
+
