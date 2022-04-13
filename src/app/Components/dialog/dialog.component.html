@@ -2,18 +2,27 @@
 
 <div mat-dialog-content>
 
+  <form [formGroup]="userForm" mat-form-field>
+
     <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix color="primary">sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
-      <br/>
-      <mat-form-field appearance="outline">
-        <mat-label>Job Role</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-icon matSuffix color="primary">work</mat-icon>
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Enter name...">
+      <mat-icon matSuffix class="user-icon">sentiment_very_satisfied</mat-icon>
     </mat-form-field>
-  
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Job Role</mat-label>
+      <input formControlName="jobTitle" matInput placeholder="Enter job role...">
+      <mat-icon matSuffix class="user-icon">work</mat-icon>
+    </mat-form-field>
+
+  </form>
+
 </div>
 
-<button mat-raised-button color="warn">Submit</button>
+<button class="btn-container">
+
+  <button mat-raised-button class="submit-btn" (click)="onSubmit()">Save</button>
+  <button mat-raised-button class="submit-btn" [matDialogClose]>Close</button>
+
+</button>

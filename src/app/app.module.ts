@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import {RouterModule } from '@angular/router';
@@ -29,7 +30,8 @@ import { DialogComponent } from './Components/dialog/dialog.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FlexModule
+    FlexModule,
+    ReactiveFormsModule
   
   ],
   providers: [],
