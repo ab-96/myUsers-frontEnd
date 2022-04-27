@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add User</h1>
+<h1 mat-dialog-title>{{actionName}}</h1>
 
 <div mat-dialog-content>
 
@@ -22,7 +22,7 @@
 
 <button class="btn-container">
 
-  <button mat-raised-button class="submit-btn" (click)="onSubmit()">Save</button>
+  <button mat-raised-button class="submit-btn" (click)="onSubmit()">{{actionBtn}}</button>
   <button mat-raised-button class="submit-btn" [matDialogClose]>Close</button>
 
 </button>

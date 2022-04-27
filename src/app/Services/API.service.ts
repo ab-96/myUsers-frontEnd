@@ -11,7 +11,8 @@ export class ApiService {
     private URL = 'http://localhost:8080/users';
     private postURL = "http://localhost:8080/add-user";
     private delURL = "http://localhost:8080/delete";
-  unsubscribe: any;
+    private updateURL = "http://localhost:8080/update";
+
 
 constructor(private api: HttpClient) { }
 
@@ -25,8 +26,13 @@ addUser(user: Users): Observable<Users> {
     return this.api.post<Users>(this.postURL, user);
 }
 // DELETE
-removeUser(id: number): Observable<Users>  {
-    return this.api.delete<Users>(`${this.delURL}/${id}`)
+removeUser(id: number): Observable<void>  {
+    return this.api.delete<void>(`${this.delURL}/${id}`)
+}
+
+// PUT
+updateUser(user: Users, id: number): Observable<Users> {
+    return this.api.put<Users>(`${this.updateURL}/${id}`, user);
 }
 
 

@@ -13,7 +13,6 @@
 }
 
 table {
-  
   margin-top: 20px;
   width: 100%;
   padding: 0px !important;
@@ -52,10 +51,14 @@ button {
   background-color: #ffb41f;
 }
 
-.delete-icon {
+.action-icon {
   color: #ffb41f;
 }
 
 .filter-text {
   color: white;
+}
+
+.Action-title {
+  padding-left: 20px;
 }

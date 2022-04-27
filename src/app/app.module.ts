@@ -22,7 +22,8 @@ import { DialogComponent } from './Components/dialog/dialog.component';
     AppComponent,
     ToolbarComponent,
     UserListComponent,
-    DialogComponent
+    DialogComponent,
+
   ],
   imports: [
     BrowserModule,

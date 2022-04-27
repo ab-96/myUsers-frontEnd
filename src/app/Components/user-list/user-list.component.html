@@ -36,10 +36,13 @@
 
       <!-- Fruit Column -->
       <ng-container matColumnDef="Action">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+        <th class="Action-title"mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
         <td mat-cell *matCellDef="let row">
+          <button mat-button>
+            <mat-icon class="action-icon" (click)="updateUser(row)">edit</mat-icon>
+          </button>
           <button mat-button (click)="deleteUser(row.id)">
-            <mat-icon class="delete-icon">delete</mat-icon>
+            <mat-icon [style]="{'color': 'white'}">delete</mat-icon>
           </button>
         </td>
       </ng-container>
@@ -55,6 +58,6 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>

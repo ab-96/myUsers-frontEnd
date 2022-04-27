@@ -12,43 +12,34 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss'],
 })
-export class UserListComponent implements OnInit {
-  [x: string]: any;
+export class UserListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatTable) table: MatTable<Users>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  users: any;
+  users: Users[];
   displayedColumns: string[] = ['id', 'name', 'jobTitle', 'Action'];
-  dataSource: MatTableDataSource<any>;
-
+  dataSource: MatTableDataSource<Users> = new MatTableDataSource<Users>([]);
+  userResponse: any;
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.showUsers();
   }
 
-  // showUsers() {
-  //   this.apiService.getUsers().subscribe({
-  //     next: (userArr) => {
-  //       this.users = userArr;
-  //       this.dataSource = new MatTableDataSource(userArr);
-  //       this.paginator = this.paginator;
-  //       this.dataSource.sort = this.sort;
-  //     },
-  //   });
-  // }
-
-  showUsers() {
-    this.apiService.getUsers().subscribe((val) => {
-      this.users = val;
-      this.dataSource = new MatTableDataSource(val);
-      this.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-    }) 
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
 
-  applyFilter(event: Event) {
+  showUsers(): void {
+    this.apiService.getUsers().subscribe((val) => {
+      this.users = val;
+      this.dataSource.data = val;
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -57,24 +48,35 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  openDialog() {
+  openDialog(): void {
     this.dialog
       .open(DialogComponent, {})
       .afterClosed()
-      .subscribe((val) => {
+      .subscribe(() => {
         this.showUsers();
       });
   }
 
-  deleteUser(id: number) { 
-    this.apiService.removeUser(id)
-    .subscribe({
-      next: res => {
+  deleteUser(id: number): void {
+    if (confirm('Are you sure you want to delete this user?') === true) {
+      this.userResponse = 'User has been succesfully deleted';
+      this.apiService.removeUser(id).subscribe((val) => {
         this.showUsers();
-        alert("User has been removed")
-      },
-    });
+        alert("User has been deleted");
+      });
+    } else {
+      alert('Ok no changes were made');
+    }
   }
 
- 
+  updateUser(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        data: row,
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.showUsers();
+      });
+  }
 }
