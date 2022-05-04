@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { ApiService } from '../../Services/API.service';
+import { ApiService } from '../../../Services/API.service';
 import { DialogComponent } from '../dialog/dialog.component';
-import { Users } from '../../Interface/Users';
+import { Users } from '../../../Interface/Users';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
