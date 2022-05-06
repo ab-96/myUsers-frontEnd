@@ -1,0 +1,26 @@
+
+.container {
+    // border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 30px;
+
+
+    .example-form {
+        min-width: 150px;
+        max-width: 500px;
+        width: 100%;
+      }
+      
+      .example-full-width {
+        width: 100%;
+      }
+      
+}
+
+
+h1 {
+    font-family: J;
+}
+
