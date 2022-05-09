@@ -5,7 +5,8 @@ import { LoginFormComponent } from './my-users-login/login-form/login-form.compo
 
 const routes: Routes = [
   {path: "myUsers", component: UserListComponent},
-  {path: "login", component: LoginFormComponent}
+  {path: "login", component: LoginFormComponent},
+  {path: "**", redirectTo: "login"}
 ];
 
 @NgModule({

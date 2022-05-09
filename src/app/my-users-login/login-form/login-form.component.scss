@@ -1,10 +1,10 @@
 
 .container {
-    // border: 1px solid white;
     display: flex;
     flex-direction: column;
     height: 100vh;
     padding: 0 30px;
+    font-family: 'Jost', sans-serif;
 
 
     .example-form {
@@ -12,6 +12,7 @@
         max-width: 500px;
         width: 100%;
       }
+
       
       .example-full-width {
         width: 100%;
@@ -20,7 +21,21 @@
 }
 
 
+
+
 h1 {
-    font-family: J;
+  color: white;
+  font-weight: 600;
+
 }
 
+p {
+  color: white;
+
+}
+
+.login-btn {
+  background-color: #FFB41F;
+  color: white;
+  font-size: 15px;
+}

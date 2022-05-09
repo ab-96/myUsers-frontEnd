@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { MyUsersLoginModule } from './my-users-login/my-users-login.module';
+import { MyUsersAppModule } from './my-users-app/my-users-app.module';
 
 
 import { AppComponent } from './app.component';
@@ -30,7 +31,8 @@ import { DialogComponent } from './my-users-app/Components/dialog/dialog.compone
     ReactiveFormsModule,
     AppRoutingRoutingModule,
     RouterModule,
-    MyUsersLoginModule
+    MyUsersLoginModule,
+    MyUsersAppModule
   ],
   providers: [],
   bootstrap: [AppComponent],
