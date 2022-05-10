@@ -21,10 +21,23 @@
          </mat-error>
       </mat-form-field>
 
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" placeholder="Ex. user@admiralgroup.co.uk" required>
+        <!-- <mat-error *ngIf="loginForm.get('password')?.hasError('password')">
+         Email is not valid
+        </mat-error> -->
 
-     
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+         </mat-error>
+      </mat-form-field>
 
-      <!-- <button routerLink="/myUsers" mat-raised-button class="login-btn">Login</button> -->
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+         Password must be 6 characters
+        </mat-error>
+
+      <button routerLink="/myUsers" mat-raised-button class="login-btn">Login</button>
 
 
     </form>

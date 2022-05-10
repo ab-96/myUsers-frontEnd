@@ -33,7 +33,6 @@ export class LoginFormComponent implements OnInit {
     
   }
 
-
   // getErrorMessage() {
   //   if (this.loginForm.hasError('required')) {
   //     return 'Email is required';
