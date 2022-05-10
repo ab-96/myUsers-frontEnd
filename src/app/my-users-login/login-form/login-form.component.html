@@ -7,36 +7,24 @@
   <router-outlet></router-outlet>
 
   <mat-card>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="loginForm">
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. user@admiralgroup.co.uk">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
+        <input type="email" matInput formControlName="email" placeholder="Ex. user@admiralgroup.co.uk" required>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+         Email is not valid
         </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
-          Email is <strong>required</strong>
-        </mat-error>
+
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email is required
+         </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Password</mat-label>
-        <input [type]="hide ? 'password' : 'text'" matInput placeholder="Password" [formControl]="passwordFormControl">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
-          Password must be at least 6 characters
-        </mat-error>
-        <mat-error *ngIf="passwordFormControl.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
 
-      <br>
+     
 
-      <button routerLink="/myUsers" mat-raised-button class="login-btn" >Login</button>
+      <!-- <button routerLink="/myUsers" mat-raised-button class="login-btn">Login</button> -->
 
 
     </form>
@@ -44,3 +32,12 @@
   </mat-card>
 
 </div>
+
+<!-- 
+<mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+  Password must be at least 6 characters
+
+</mat-error>
+<mat-error *ngIf="passwordFormControl.hasError('required')">
+  Password is <strong>required</strong>
+</mat-error> --> -->
