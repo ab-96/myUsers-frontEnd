@@ -34,6 +34,7 @@
           [type]="hide ? 'password' : 'text'"
         />
         <button
+          type="button"
           mat-icon-button
           matSuffix
           (click)="hide = !hide"
@@ -51,11 +52,7 @@
         Password must be at least 6 characters
       </mat-error>
 
-      <button type="submit" mat-raised-button class="login-btn">
-        Login
-      </button>
+      <button type="submit" mat-raised-button class="login-btn">Login</button>
     </form>
   </mat-card>
 </div>
-
-

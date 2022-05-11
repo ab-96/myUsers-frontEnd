@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MyUsersLoginModule } from '../my-users-login.module';
-import { UserListComponent } from '../../my-users-app/Components/user-list/user-list.component';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -11,13 +10,17 @@ import { UserListComponent } from '../../my-users-app/Components/user-list/user-
 export class LoginFormComponent implements OnInit {
   constructor(private router: Router) {}
 
+  @Output() messageEvent = new EventEmitter<string>();
+
   hide = true;
   loginForm: FormGroup;
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
       this.router.navigate(['/myUsers']);
       alert('Login successful');
+      console.log(this.hide);
+      
     }
   }
 
